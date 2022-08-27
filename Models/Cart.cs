@@ -21,11 +21,11 @@ namespace Models
             CartYellowBricks = cartYellowBricks;
         }
 
-        Guid OrderID { get; set; }
-        Guid CustomerID_FK { get; set; }
-        int CartRedBricks { get; set; } = 0;
-        int CartBlueBricks { get; set; } = 0;
-        int CartYellowBricks { get; set; } = 0;
+        public Guid OrderID { get; set; }
+        public Guid CustomerID_FK { get; set; }
+        public int CartRedBricks { get; set; } = 0;
+        public int CartBlueBricks { get; set; } = 0;
+        public int CartYellowBricks { get; set; } = 0;
         //to do: maybe price?
 
     }
