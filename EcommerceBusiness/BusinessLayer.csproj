@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\EcommerceRepo.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\RepoLayer.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 

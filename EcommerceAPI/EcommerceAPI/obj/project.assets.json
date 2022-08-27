@@ -93,14 +93,27 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Models": "1.0.0",
-          "RepoLayer": "1.0.0"
+          "EcommerceRepo": "1.0.0",
+          "Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BusinessLayer.dll": {}
         },
         "runtime": {
           "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
+      "EcommerceRepo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/EcommerceRepo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EcommerceRepo.dll": {}
         }
       },
       "Models/1.0.0": {
@@ -111,19 +124,6 @@
         },
         "runtime": {
           "bin/placeholder/Models.dll": {}
-        }
-      },
-      "RepoLayer/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/RepoLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RepoLayer.dll": {}
         }
       }
     }
@@ -259,15 +259,15 @@
       "path": "../../BusinessLayer/BusinessLayer.csproj",
       "msbuildProject": "../../BusinessLayer/BusinessLayer.csproj"
     },
+    "EcommerceRepo/1.0.0": {
+      "type": "project",
+      "path": "../../ClassLibrary1/EcommerceRepo.csproj",
+      "msbuildProject": "../../ClassLibrary1/EcommerceRepo.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../../Models/Models.csproj",
       "msbuildProject": "../../Models/Models.csproj"
-    },
-    "RepoLayer/1.0.0": {
-      "type": "project",
-      "path": "../../ClassLibrary1/RepoLayer.csproj",
-      "msbuildProject": "../../ClassLibrary1/RepoLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {

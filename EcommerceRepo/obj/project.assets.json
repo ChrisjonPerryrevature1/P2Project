@@ -33,9 +33,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj",
-      "projectName": "EcommerceRepo",
-      "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj",
+      "projectUniqueName": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj",
+      "projectName": "RepoLayer",
+      "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj",
       "packagesPath": "C:\\Users\\heath\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",

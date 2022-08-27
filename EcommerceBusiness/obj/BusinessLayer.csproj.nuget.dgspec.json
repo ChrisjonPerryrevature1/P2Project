@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj": {
-                "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj"
+              "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj": {
+                "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj"
               },
               "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\Models\\Models.csproj": {
                 "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\Models\\Models.csproj"
@@ -71,12 +71,12 @@
         }
       }
     },
-    "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj": {
+    "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj",
-        "projectName": "EcommerceRepo",
-        "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\EcommerceRepo.csproj",
+        "projectUniqueName": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj",
+        "projectName": "RepoLayer",
+        "projectPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\RepoLayer.csproj",
         "packagesPath": "C:\\Users\\heath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\heath\\OneDrive\\Desktop\\Revature\\P2\\P2Project\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceAPI", "EcommerceAPI\EcommerceAPI.csproj", "{BEAE0E17-F5BA-4DD2-A887-2A474E8C3EA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceAPI", "EcommerceAPI\EcommerceAPI.csproj", "{BEAE0E17-F5BA-4DD2-A887-2A474E8C3EA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "..\BusinessLayer\BusinessLayer.csproj", "{0B985367-DFAB-4BD3-B5B9-F969D460B690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "..\BusinessLayer\BusinessLayer.csproj", "{0B985367-DFAB-4BD3-B5B9-F969D460B690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepoLayer", "..\ClassLibrary1\RepoLayer.csproj", "{C5F7D7E3-692F-473A-90A2-426DAEC489F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceRepo", "..\ClassLibrary1\EcommerceRepo.csproj", "{C5F7D7E3-692F-473A-90A2-426DAEC489F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{06BBD92E-FD10-44FA-815B-BCF05F6DDFD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.csproj", "{06BBD92E-FD10-44FA-815B-BCF05F6DDFD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
