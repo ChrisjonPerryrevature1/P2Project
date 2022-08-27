@@ -27,6 +27,17 @@ namespace EcommerceAPI.Controllers
             return BadRequest(customer);
         }
 
+        [HttpPost("LoginAsync")]
+        public async Task<ActionResult> LoginAsync(Customers login)
+        {
+            if(ModelState.IsValid)
+            {
+                Customers newLogin = await this._businessLayer.LoginAsync(login);
+                return Ok(newLogin);
+            }
+            return BadRequest(login);
+        }
+
 
 
     }
