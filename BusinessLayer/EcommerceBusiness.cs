@@ -17,5 +17,12 @@ namespace BusinessLayer
             Customers newCustomer = await this._repoLayer.RegisterCustomerAsync(customer);
             return newCustomer;
         }
+
+        public async Task<Customers> LoginAsync(Customers login)
+        {
+            Customers newLogin = await this._repoLayer.LoginAsync(login);
+            return newLogin;
+        }
+
     }
 }
