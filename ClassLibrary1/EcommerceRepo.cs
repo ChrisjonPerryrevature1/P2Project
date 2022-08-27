@@ -45,5 +45,25 @@ namespace RepoLayer
             conn.Close();
             return null;
         }
-    }
+
+        public async Task<List<Inventory>> ViewInventoryAsync()
+        {
+            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            using (SqlCommand command = new SqlCommand($"SELECT*FROM Inventory", conn))
+            {
+                conn.Open();
+                SqlDataReader? ret = await command.ExecuteReaderAsync();
+                List<Inventory> rlist = new List<Inventory>();
+                while (ret.Read())
+                {
+                    Inventory r = new Inventory(ret.GetInt32(0), ret.GetString(1), ret.GetInt32(2), ret.GetDecimal(3));
+                    rlist.Add(r);
+                }
+                conn.Close();
+                return rlist;
+            }
+
+
+        }
+    }   
 }

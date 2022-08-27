@@ -38,6 +38,14 @@ namespace EcommerceAPI.Controllers
             return BadRequest(login);
         }
 
+        [HttpGet("ViewInventoryAsync")]
+        public async Task<ActionResult<List<Inventory>>> ViewInventoryAsync()
+        {
+  
+                List<Inventory> ViewInventory = await this._businessLayer.ViewInventoryAsync();
+                return Ok(ViewInventory);
+            
+        }
 
 
     }
