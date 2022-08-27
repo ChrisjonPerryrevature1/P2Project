@@ -24,5 +24,10 @@ namespace BusinessLayer
             return newLogin;
         }
 
+        public async Task<List<Inventory>> ViewInventoryAsync()
+        {
+            List<Inventory> ViewInventory = await this._repoLayer.ViewInventoryAsync();
+            return ViewInventory;
+        }
     }
 }
