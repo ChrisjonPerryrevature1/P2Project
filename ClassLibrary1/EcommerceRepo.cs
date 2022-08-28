@@ -65,5 +65,50 @@ namespace RepoLayer
 
 
         }
+
+        public async Task<Cart> FillCartAsync(Cart cart)
+        {
+            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            using (SqlCommand command = new SqlCommand($"INSERT INTO Cart (CustomerID_FK, RedBricks, BlueBricks, YellowBricks) VALUES (@CustomerID_FK, @RedBricks, @BlueBricks, @YellowBricks)", conn))
+            {
+                command.Parameters.AddWithValue("@CustomerID_FK", cart.CustomerID_FK); //SQL inj prevention
+                command.Parameters.AddWithValue("@RedBricks", cart.CartRedBricks); //SQL inj prevention
+                command.Parameters.AddWithValue("@BlueBricks", cart.CartBlueBricks); //SQL inj prevention
+                command.Parameters.AddWithValue("@YellowBricks", cart.CartYellowBricks); //SQL inj prevention
+
+
+                conn.Open();
+                int ret = await command.ExecuteNonQueryAsync();
+                while (ret > 0)
+                {
+                    return cart;
+                }
+                conn.Close();
+                return null;
+            }
+        }
+
+        public async Task<Cart> EditCartAsync(Cart cart)
+        {
+
+            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            using (SqlCommand command = new SqlCommand($"UPDATE Cart SET CustomerID_FK = @CustomerID_FK, RedBricks = @RedBricks, BlueBricks = @BlueBricks, YellowBricks = @YellowBricks WHERE CustomerID_FK = @CustomerID_FK", conn))
+            {
+                command.Parameters.AddWithValue("@CustomerID_FK", cart.CustomerID_FK); //SQL inj prevention
+                command.Parameters.AddWithValue("@RedBricks", cart.CartRedBricks); //SQL inj prevention
+                command.Parameters.AddWithValue("@BlueBricks", cart.CartBlueBricks); //SQL inj prevention
+                command.Parameters.AddWithValue("@YellowBricks", cart.CartYellowBricks); //SQL inj prevention
+
+
+                conn.Open();
+                int ret = await command.ExecuteNonQueryAsync();
+                while (ret > 0)
+                {
+                    return cart;
+                }
+                conn.Close();
+                return null;
+            }
+        }
     }   
 }
