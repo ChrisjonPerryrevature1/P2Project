@@ -18,9 +18,9 @@ namespace EcommerceAPI.Controllers
         [HttpPost("RegisterCustomerAsync")]
         public async Task<ActionResult> RegisterCustomerAsync(Customers customer)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-               // Customers customer = new Customers();
+                // Customers customer = new Customers();
                 Customers newCustomer = await this._businessLayer.RegisterCustomerAsync(customer);
                 return Ok(newCustomer);
             }
@@ -30,7 +30,7 @@ namespace EcommerceAPI.Controllers
         [HttpPost("LoginAsync")]
         public async Task<ActionResult> LoginAsync(Customers login)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 Customers newLogin = await this._businessLayer.LoginAsync(login);
                 return Ok(newLogin);
@@ -41,10 +41,10 @@ namespace EcommerceAPI.Controllers
         [HttpGet("ViewInventoryAsync")]
         public async Task<ActionResult<List<Inventory>>> ViewInventoryAsync()
         {
-  
-                List<Inventory> ViewInventory = await this._businessLayer.ViewInventoryAsync();
-                return Ok(ViewInventory);
-            
+
+            List<Inventory> ViewInventory = await this._businessLayer.ViewInventoryAsync();
+            return Ok(ViewInventory);
+
         }
 
         [HttpPost("FillCartAsync")]
@@ -58,6 +58,17 @@ namespace EcommerceAPI.Controllers
             return BadRequest(cart);
         }
 
+        [HttpPut("EditCartAsync")]
+        public async Task<ActionResult> EditCartAsync(Cart cart)
+        {
+            if (ModelState.IsValid)
+            {
+                Cart editedCart = await this._businessLayer.EditCartAsync(cart);
+                return Ok(editedCart);
+            }
+            return BadRequest(cart);
 
-    }
-}
+        }
+
+    }//EOC
+}//EON
