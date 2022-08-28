@@ -47,6 +47,17 @@ namespace EcommerceAPI.Controllers
             
         }
 
+        [HttpPost("FillCartAsync")]
+        public async Task<ActionResult> FillCartAsync(Cart cart)
+        {
+            if (ModelState.IsValid)
+            {
+                Cart FilledCart = await this._businessLayer.FillCartAsync(cart);
+                return Ok(FilledCart);
+            }
+            return BadRequest(cart);
+        }
+
 
     }
 }
