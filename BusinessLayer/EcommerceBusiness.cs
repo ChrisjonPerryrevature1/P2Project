@@ -29,5 +29,17 @@ namespace BusinessLayer
             List<Inventory> ViewInventory = await this._repoLayer.ViewInventoryAsync();
             return ViewInventory;
         }
+
+        public async Task<Cart> FillCartAsync(Cart cart)
+        {
+            Cart FilledCart = await this._repoLayer.FillCartAsync(cart);
+            return FilledCart;
+        }
+
+        public async Task<Cart> EditCartAsync(Cart cart)
+        {
+            Cart editedCart = await this._repoLayer.EditCartAsync(cart);
+            return editedCart;
+        }
     }
 }
