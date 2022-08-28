@@ -110,5 +110,26 @@ namespace RepoLayer
                 return null;
             }
         }
+
+        public async Task<Orders> CheckoutCartAsync(CustomerIDdto customer)
+        {
+            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            using (SqlCommand command = new SqlCommand($"INSERT INTO Orders SELECT CustomerID_FK, RedBricks, BlueBricks, YellowBricks FROM Cart WHERE CustomerID_FK = @CustomerID_FK; SELECT * FROM Inventory MINUS SELECT * FROM Orders WHERE CustomerID_FK = @CustomerID_FK; DELETE FROM Cart WHERE CustomerID_FK = @CustomerID_FK;", conn))
+            {
+                command.Parameters.AddWithValue("@CustomerID_FK", customer.CustomerID); //SQL inj prevention
+
+                conn.Open();
+                SqlDataReader? ret = await command.ExecuteReaderAsync();
+                if (ret.Read())
+                {
+                    Orders? r = new Orders(ret.GetInt32(0), ret.GetInt32(1), ret.GetInt32(2), ret.GetInt32(3), ret.GetInt32(4));
+                    conn.Close();
+                    return r;
+                }
+            }
+            conn.Close();
+            return null;
+        
+        }
     }   
 }

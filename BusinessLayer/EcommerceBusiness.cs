@@ -41,5 +41,26 @@ namespace BusinessLayer
             Cart editedCart = await this._repoLayer.EditCartAsync(cart);
             return editedCart;
         }
+
+        public async Task<Orders> CheckoutCartAsync(CustomerIDdto customer)
+        {
+            //make an order insert into select
+            //inventory update
+            //drop the cart tuple
+            Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
+            return orderComplete;
+        }
+
+        /*
+         SELECT column1 , column2 , ... columnN
+            FROM table_name
+            WHERE condition
+            MINUS
+            SELECT column1 , column2 , ... columnN
+            FROM table_name
+            WHERE condition;
+         */
+
+
     }
 }

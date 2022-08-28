@@ -70,5 +70,18 @@ namespace EcommerceAPI.Controllers
 
         }
 
+        [HttpPost("ChckoutCartAsync")]
+        public async Task<ActionResult> CheckoutCartAsync(CustomerIDdto customer)
+        {
+            if (ModelState.IsValid)
+            {
+                Orders orderComplete = await this._businessLayer.CheckoutCartAsync(customer);
+                return Ok(orderComplete);
+            }
+            return BadRequest(customer);
+
+        }
+
+
     }//EOC
 }//EON
