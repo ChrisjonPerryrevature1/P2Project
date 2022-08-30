@@ -44,11 +44,35 @@ namespace BusinessLayer
 
         public async Task<Orders> CheckoutCartAsync(CustomerIDdto customer)
         {
+            if (await this._repoLayer.CartToOrders(customer.CustomerID))
+            {
+                if (await this._repoLayer.UpdateInventory())
+                {
+                    if (await this._repoLayer.DropCart())
+                    {
+                        Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
+                        return orderComplete;
+
+                    }
+                }
+            }
+            else return null;
+
+            
+            
+            
+            
+            
+            //if (make an order returns true)
+            //{ if (inventory gets update)
+            // {  if (drop table)
+            //   { return Orders Order Complete 
+            //}}}
             //make an order insert into select
             //inventory update
             //drop the cart tuple
-            Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
-            return orderComplete;
+           // Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
+            //return orderComplete;
         }
 
         /*
