@@ -91,14 +91,14 @@ stages:
 #   - job: publish_the_app
 #     steps:
     # publishing is optional but allows you to decorate the PRs later.
-    - task: SonarCloudPublish@1
-      inputs:
-        pollingTimeoutSec: '300'
-    - task: DotNetCoreCLI@2
-      displayName: publishing_task
-      inputs:
-        command: 'publish'
-        publishWebProjects: true
-        workingDirectory: '$(workingDirectory)'
-        projects: $(solution)
-        zipAfterPublish: true
+   # - task: SonarCloudPublish@1
+    #  inputs:
+     #   pollingTimeoutSec: '300'
+#    - task: DotNetCoreCLI@2
+#      displayName: publishing_task
+#      inputs:
+#        command: 'publish'
+#        publishWebProjects: true
+#        workingDirectory: '$(workingDirectory)'
+#        projects: $(solution)
+#        zipAfterPublish: true
