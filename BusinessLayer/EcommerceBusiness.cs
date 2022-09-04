@@ -3,13 +3,13 @@ using RepoLayer;
 
 namespace BusinessLayer
 {
-    public class EcommerceBusiness
+    public class EcommerceBusiness : IEcommerceBusiness
     {
 
-        private readonly EcommerceRepo _repoLayer;
-        public EcommerceBusiness()
+        private readonly IEcommerceRepo _repoLayer;
+        public EcommerceBusiness(IEcommerceRepo ier)
         {
-            this._repoLayer = new EcommerceRepo();
+            this._repoLayer = ier;
         }
 
         public async Task<Customers> RegisterCustomerAsync(Customers customer)
@@ -42,49 +42,43 @@ namespace BusinessLayer
             return editedCart;
         }
 
-        public async Task<Orders> CheckoutCartAsync(CustomerIDdto customer)
-        {
-            if (await this._repoLayer.CartToOrders(customer.CustomerID))
-            {
-                if (await this._repoLayer.UpdateInventory())
-                {
-                    if (await this._repoLayer.DropCart())
-                    {
-                        Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
-                        return orderComplete;
+        //public async Task<Orders> CheckoutCartAsync(CustomerIDdto customer)
+        //{
+        //    if (await this._repoLayer.CartToOrders(customer.CustomerID))
+        //    {
+        //        if (await this._repoLayer.UpdateInventory())
+        //        {
+        //            if (await this._repoLayer.DropCart())
+        //            {
+        //                Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
+        //                return orderComplete;
 
-                    }
-                }
-            }
-            else return null;
+        //            }
+        //        }
+        //    }
+        //    else return null;
 
-            
-            
-            
-            
-            
-            //if (make an order returns true)
-            //{ if (inventory gets update)
-            // {  if (drop table)
-            //   { return Orders Order Complete 
-            //}}}
-            //make an order insert into select
-            //inventory update
-            //drop the cart tuple
-           // Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
-            //return orderComplete;
-        }
-
-        /*
-         SELECT column1 , column2 , ... columnN
-            FROM table_name
-            WHERE condition
-            MINUS
-            SELECT column1 , column2 , ... columnN
-            FROM table_name
-            WHERE condition;
-         */
-
-
+        //if (make an order returns true)
+        //{ if (inventory gets update)
+        // {  if (drop table)
+        //   { return Orders Order Complete 
+        //}}}
+        //make an order insert into select
+        //inventory update
+        //drop the cart tuple
+        // Orders orderComplete = await this._repoLayer.CheckoutCartAsync(customer);
+        //return orderComplete;
     }
+
+    /*
+     SELECT column1 , column2 , ... columnN
+        FROM table_name
+        WHERE condition
+        MINUS
+        SELECT column1 , column2 , ... columnN
+        FROM table_name
+        WHERE condition;
+     */
+
+
 }
