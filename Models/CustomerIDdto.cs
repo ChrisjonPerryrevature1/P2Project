@@ -13,6 +13,11 @@ namespace Models
             CustomerID = customerID;
         }
 
+        public CustomerIDdto()
+        {
+           
+        }
+
         public int CustomerID { get; set; } 
     }
 }

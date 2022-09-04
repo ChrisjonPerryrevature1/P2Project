@@ -15,6 +15,10 @@ namespace Models
             Quantity = quantity;
             Price = price;
         }
+        public Inventory()
+        {
+
+        }
 
         public int ItemId { get; set; }
         public string ItemName { get; set; }
