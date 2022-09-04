@@ -82,7 +82,7 @@ stages:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/coburtura/coverage.xml'
         # failIfCoverageEmpty: true
-    - task: SonarCloudAnalyze@1
+#  - task: SonarCloudAnalyze@1
 
 #publish the app
 # - stage: publish
