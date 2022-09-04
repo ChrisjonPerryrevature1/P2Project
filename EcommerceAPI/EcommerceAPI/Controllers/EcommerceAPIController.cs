@@ -9,10 +9,10 @@ namespace EcommerceAPI.Controllers
     [ApiController]
     public class EcommerceAPIController : ControllerBase
     {
-        private readonly EcommerceBusiness _businessLayer;
-        public EcommerceAPIController()
+        private readonly IEcommerceBusiness _businessLayer;
+        public EcommerceAPIController(IEcommerceBusiness ieb)
         {
-            this._businessLayer = new EcommerceBusiness();
+            this._businessLayer = ieb;
         }
 
         [HttpPost("RegisterCustomerAsync")]
@@ -69,6 +69,19 @@ namespace EcommerceAPI.Controllers
             return BadRequest(cart);
 
         }
+
+        //[HttpPost("CheckoutCartAsync")]
+        //public async Task<ActionResult> CheckoutCartAsync(CustomerIDdto customer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Orders orderComplete = await this._businessLayer.CheckoutCartAsync(customer);
+        //        return Ok(orderComplete);
+        //    }
+        //    return BadRequest(customer);
+
+        //}
+
 
     }//EOC
 }//EON
