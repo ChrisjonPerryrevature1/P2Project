@@ -36,14 +36,13 @@ stages:
       inputs:
         versionSpec: 
         checkLatest: true
-  #  - task: SonarCloudPrepare@1
-    #  inputs:
-     #   SonarCloud: '071822batch_SonarCloudServiceConnection'
-      #  organization: '071822dotnetbatch'
-       # scannerMode: 'MSBuild'
-        #projectKey: '071822dotnetbatch_071822batchtest'
-        #projectName: '071822batchtest'
-
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'Sonaircloud connection'
+        organization: 'chrisjon350'
+        scannerMode: 'MSBuild'
+        projectKey: 'chrisjon350_ProjectTest'
+        projectName: 'ProjectTest'
 # this is the build stage        
 # - stage: build
 #   dependsOn: prep
@@ -82,7 +81,7 @@ stages:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/coburtura/coverage.xml'
         # failIfCoverageEmpty: true
-#  - task: SonarCloudAnalyze@1
+    - task: SonarCloudAnalyze@1
 
 #publish the app
 # - stage: publish
@@ -91,14 +90,28 @@ stages:
 #   - job: publish_the_app
 #     steps:
     # publishing is optional but allows you to decorate the PRs later.
-   # - task: SonarCloudPublish@1
-    #  inputs:
-     #   pollingTimeoutSec: '300'
-#    - task: DotNetCoreCLI@2
-#      displayName: publishing_task
-#      inputs:
-#        command: 'publish'
-#        publishWebProjects: true
-#        workingDirectory: '$(workingDirectory)'
-#        projects: $(solution)
-#        zipAfterPublish: true
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'
+    - task: DotNetCoreCLI@2
+      displayName: publishing_task
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+        workingDirectory: '$(workingDirectory)'
+        projects: $(solution)
+        zipAfterPublish: true
+
+# - stage: deploy
+#   jobs:
+#   - job: deploy_the_app
+#     steps:
+#     - task: AzureRmWebAppDeployment@4
+#       inputs:
+#         ConnectionType: 'AzureRM'
+#         appType: 'webApp'
+#         WebAppName: 'placeholder'
+#         deployToSlotOrASE: true
+#         ResourceGroupName: 'placeholder'
+#         SlotName: 'production'
+#         packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
