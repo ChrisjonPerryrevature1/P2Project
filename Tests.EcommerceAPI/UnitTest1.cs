@@ -2,6 +2,7 @@ namespace Tests.EcommerceAPI;
 using Models;
 using BusinessLayer;
 
+
 public class UnitTest1
 {
     [Fact]
@@ -55,18 +56,18 @@ public class UnitTest1
         Assert.Equal(price, inv.Price);
     }
 
-    [Fact]
-    public async void RegisterCustomerCheck()
-    {
-        //Arrange
-        Customers c = new Customers();
-        c.Email = "email@email.com";
-        c.Password = "password456";
-        Mock_RepoLayer m = new Mock_RepoLayer();
-        EcommerceBusiness eb = new EcommerceBusiness(m);
-        //Act
-        Customers result = await eb.RegisterCustomerAsync(c);
-        //Assert
-        Assert.Equal(c.Password, result.Password);
-    }
+    //[Fact]
+    //public async Task RegisterCustomerCheck()
+    //{
+    //    //Arrange
+    //    Customers customer = new Customers();
+    //    customer.Email = "email@email.com";
+    //    customer.Password = "password456";
+    //    Mock_RepoLayer m = new Mock_RepoLayer();
+    //    EcommerceBusiness eb = new EcommerceBusiness(m);
+    //    //Act
+    //    Customers result = await eb.RegisterCustomerAsync(customer);
+    //    //Assert
+    //    Assert.Equal(result.Email, customer.Email);
+    //}
 }
