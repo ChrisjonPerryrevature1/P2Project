@@ -8,7 +8,7 @@ namespace RepoLayer
 
         public async Task<Customers> RegisterCustomerAsync(Customers customer)
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("Server=tcp:rainbowroadserver.database.windows.net,1433;Initial Catalog=RainbowRoad;Persist Security Info=False;User ID=MathiasRivera;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             using (SqlCommand command = new SqlCommand($"INSERT INTO Customers (Email, Password) VALUES (@Email, @Password)", conn))
             {
                 command.Parameters.AddWithValue("@Email", customer.Email); //SQL inj prevention
@@ -27,7 +27,7 @@ namespace RepoLayer
         public async Task<Customers> LoginAsync(Customers login)
         {
 
-            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("Server=tcp:rainbowroadserver.database.windows.net,1433;Initial Catalog=RainbowRoad;Persist Security Info=False;User ID=MathiasRivera;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             using (SqlCommand command = new SqlCommand($"SELECT Email,Password FROM Customers WHERE Email = @Email AND Password = @Password", conn))
             {
                 command.Parameters.AddWithValue("@Email", login.Email); //SQL inj prevention
@@ -48,7 +48,7 @@ namespace RepoLayer
 
         public async Task<List<Inventory>> ViewInventoryAsync()
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("Server=tcp:rainbowroadserver.database.windows.net,1433;Initial Catalog=RainbowRoad;Persist Security Info=False;User ID=MathiasRivera;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             using (SqlCommand command = new SqlCommand($"SELECT*FROM Inventory", conn))
             {
                 conn.Open();
@@ -68,7 +68,7 @@ namespace RepoLayer
 
         public async Task<Cart> FillCartAsync(Cart cart)
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("Server=tcp:rainbowroadserver.database.windows.net,1433;Initial Catalog=RainbowRoad;Persist Security Info=False;User ID=MathiasRivera;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             using (SqlCommand command = new SqlCommand($"INSERT INTO Cart (CustomerID_FK, RedBricks, BlueBricks, YellowBricks) VALUES (@CustomerID_FK, @RedBricks, @BlueBricks, @YellowBricks)", conn))
             {
                 command.Parameters.AddWithValue("@CustomerID_FK", cart.CustomerID_FK); //SQL inj prevention
@@ -91,7 +91,7 @@ namespace RepoLayer
         public async Task<Cart> EditCartAsync(Cart cart)
         {
 
-            SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("Server=tcp:rainbowroadserver.database.windows.net,1433;Initial Catalog=RainbowRoad;Persist Security Info=False;User ID=MathiasRivera;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             using (SqlCommand command = new SqlCommand($"UPDATE Cart SET CustomerID_FK = @CustomerID_FK, RedBricks = @RedBricks, BlueBricks = @BlueBricks, YellowBricks = @YellowBricks WHERE CustomerID_FK = @CustomerID_FK", conn))
             {
                 command.Parameters.AddWithValue("@CustomerID_FK", cart.CustomerID_FK); //SQL inj prevention
@@ -113,7 +113,7 @@ namespace RepoLayer
 
         //public async Task<Orders> CheckoutCartAsync(CustomerIDdto customer)
         //{
-        //    SqlConnection conn = new SqlConnection("Server=tcp:mathiasriverasqlserver1.database.windows.net,1433;Initial Catalog=RainbowRoadP2;Persist Security Info=False;User ID=MathiasRiveraRevature1;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        //    SqlConnection conn = new SqlConnection("Server=tcp:rainbowroadserver.database.windows.net,1433;Initial Catalog=RainbowRoad;Persist Security Info=False;User ID=MathiasRivera;Password=JohnDaniel(9);MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         //    using (SqlCommand command = new SqlCommand($"INSERT INTO Orders SELECT CustomerID_FK, RedBricks, BlueBricks, YellowBricks FROM Cart WHERE CustomerID_FK = @CustomerID_FK; SELECT * FROM Inventory MINUS SELECT * FROM Orders WHERE CustomerID_FK = @CustomerID_FK; DELETE FROM Cart WHERE CustomerID_FK = @CustomerID_FK;", conn))
         //    {
         //        command.Parameters.AddWithValue("@CustomerID_FK", customer.CustomerID); //SQL inj prevention
