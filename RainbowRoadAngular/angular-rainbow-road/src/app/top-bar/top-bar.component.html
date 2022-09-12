@@ -1,5 +1,16 @@
-<a [routerLink]="['/']">
-    <h1>My Store</h1>
-  </a>
-  
-  <a class="button fancy-button">Checkout</a>
+<div style="background-color: rgb(37,110,247);">
+  <div class = "row">
+      <div class = "col-md-6">
+          <a href="">
+              <h1>Rainbow Road</h1>
+          </a>
+      </div>
+      <div class ="col-md-6 d-flex justify-content-end">
+        <a routerLink="/cart" style ="padding: 10px;"
+        class="button fancy-button">
+        <i class="fas fa-shopping-cart"></i>
+        Checkout({{itemCount()}})
+       </a>
+      </div>
+  </div>
+</div>
