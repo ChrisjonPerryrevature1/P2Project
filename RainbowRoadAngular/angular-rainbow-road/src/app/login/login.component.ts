@@ -10,8 +10,6 @@ import { LoginService } from '../Services/login.service';
 })
 export class LoginComponent implements OnInit {
   
-  LoginService: any;
-
   constructor(    
     private loginService: LoginService,
     private formBuilder: FormBuilder) { }
@@ -24,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     // Process checkout data here
-    this.login = this.LoginService.clearLogin();
+    this.loginService.clearLogin();
+    console.warn('Your login has been successful', this.login.value);
     this.login.reset();
   }
 

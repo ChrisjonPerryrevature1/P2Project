@@ -7,13 +7,16 @@ import { LoginCredentials } from '../Models/login';
 
 export class LoginService {
 
-  login: LoginCredentials[] = [];
-
+  login: LoginCredentials = 
+  {
+    email: '',
+    password: ''
+  };
 
   constructor() { }
 
   clearLogin() {
-    this.login = [];
+    this.login;
     return this.login;
   }
 
