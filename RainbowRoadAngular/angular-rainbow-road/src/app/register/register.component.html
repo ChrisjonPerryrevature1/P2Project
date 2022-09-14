@@ -1,1 +1,25 @@
-<button>Register Button</button>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <h3>Register</h3>
+    <div>
+      <label for="email">
+        Email: 
+      </label>
+      <input id="email" type="text" formControlName="email">
+    </div>
+  
+    <div>
+      <label for="password">
+        Password:
+      </label>
+      <input id="password" type="text" formControlName="password">
+    </div>
+  
+    <button class="button" style = "padding: 10px;" type="submit">Register</button>
+    
+</form>
+<button routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" style ="padding: 10px;"> 
+Already Registered? Login Here </button>
+<button type ="button"[routerLink]="'/'" style = "padding: 10px;">
+  Back to List
+</button>

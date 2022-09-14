@@ -11,6 +11,8 @@ import { FormBuilder } from '@angular/forms';
 export class CartComponent implements OnInit {
 
   items = this.cartService.getItems();
+  //items needs to be passed through a http put request to 
+  //create an order and update inventory request in onSubmit()
 
   constructor(
     private cartService: CartService,
@@ -28,6 +30,8 @@ export class CartComponent implements OnInit {
 
   onSubmit(): void {
     // Process checkout data here
+    //http post create new order
+    //http put update inventory by subtracting cart quanitites
     this.items = this.cartService.clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
