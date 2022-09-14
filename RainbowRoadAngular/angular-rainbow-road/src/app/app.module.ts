@@ -11,6 +11,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 @NgModule({
@@ -20,11 +22,15 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: 'productlist', component: ProductListComponent },
       { path:'products/:productId',component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent}
+      { path: '', component: LoginComponent },
+      { path: 'register', component: RegisterComponent},
+      { path: 'profile', component: ProfilePageComponent },
+      { path: 'orderhistory', component: OrderHistoryComponent }
+
+
     ]),
   ],
   declarations: [
@@ -34,7 +40,9 @@ import { RegisterComponent } from './register/register.component';
     ProductDetailsComponent,
     CartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfilePageComponent,
+    OrderHistoryComponent
 
   ],
   bootstrap: [
