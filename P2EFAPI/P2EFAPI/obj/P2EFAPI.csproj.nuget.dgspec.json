@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj": {}
+    "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2Project\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj": {
+    "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2Project\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj",
+        "projectUniqueName": "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2Project\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj",
         "projectName": "P2EFAPI",
-        "projectPath": "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj",
+        "projectPath": "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2Project\\P2EFAPI\\P2EFAPI\\P2EFAPI.csproj",
         "packagesPath": "C:\\Users\\heath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2EFAPI\\P2EFAPI\\obj\\",
+        "outputPath": "C:\\Users\\heath\\Desktop\\Revature\\P2\\P2Project\\P2EFAPI\\P2EFAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,24 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
