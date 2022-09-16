@@ -44,7 +44,7 @@ namespace P2EFAPI.Controllers
         [HttpGet("GetAllUsers")]
         public async Task<ActionResult<List<User>>> GetAllUsersAsync()
         {
-            return Ok(Users); 
+            return Ok(Users);
         }
 
         [HttpGet("GetUser/{id}")]
@@ -56,12 +56,13 @@ namespace P2EFAPI.Controllers
             return Ok(user);
         }
 
-        [HttpPost ("Login")]
+        [HttpPost("Login")]
         public async Task<ActionResult<User>> LoginAsync(User login)
         {
-            var user = Users.Find(u => u.Email && u.Password == login.Email && login.Password);
+            var user = Users.Find(u => (u.Email == login.Email) && (u.Password == login.Password));
+            return Ok(login);
         }
-        
+
         [HttpPost("RegisterUser")]
         public async Task<ActionResult<List<User>>> RegisterUserAsync(User newUser)
         {
@@ -79,7 +80,7 @@ namespace P2EFAPI.Controllers
 
             user.Email = update.Email;
             user.Password = update.Password;
-            user.LoggedIn = update.LoggedIn;    
+            user.LoggedIn = update.LoggedIn;
 
             return Ok(Users);
         }
@@ -103,6 +104,6 @@ namespace P2EFAPI.Controllers
             return Ok(inventory);
         }
 
-        
+
     }
 }
