@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -21,11 +22,12 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     ReactiveFormsModule, 
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'productlist', component: ProductListComponent },
       { path:'products/:productId',component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
-      { path: '', component: LoginComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent},
       { path: 'profile', component: ProfilePageComponent },
       { path: 'orderhistory', component: OrderHistoryComponent }

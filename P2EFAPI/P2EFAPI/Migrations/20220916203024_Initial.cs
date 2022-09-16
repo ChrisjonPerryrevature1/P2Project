@@ -29,10 +29,10 @@ namespace P2EFAPI.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Red = table.Column<int>(type: "int", nullable: false),
-                    Blue = table.Column<int>(type: "int", nullable: false),
-                    Yellow = table.Column<int>(type: "int", nullable: false),
-                    FK_UserId = table.Column<int>(type: "int", nullable: false)
+                    ItemName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

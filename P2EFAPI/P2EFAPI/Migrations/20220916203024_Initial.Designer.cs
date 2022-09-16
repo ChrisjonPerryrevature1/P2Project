@@ -11,7 +11,7 @@ using P2EFAPI;
 namespace P2EFAPI.Migrations
 {
     [DbContext(typeof(ECommContext))]
-    [Migration("20220916024433_Initial")]
+    [Migration("20220916203024_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,16 +54,17 @@ namespace P2EFAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
 
-                    b.Property<int>("Blue")
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("FK_UserId")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int>("Red")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Yellow")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("OrderId");

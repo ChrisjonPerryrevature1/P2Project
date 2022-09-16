@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from '../Models/products';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -25,5 +27,18 @@ export class CartService {
   itemsCount(){
     return this.items.length;
   }
-  constructor() { }
+
+  addQuantities()
+  {
+    return this.items
+  }
+
+  // createOrder(order: any) : Observable<any>
+  // {
+  //     return this.http.post("https://localhost:7131/api/Ecommerce/CreateOrderAsync", order).subscribe();
+  // }
+
+  constructor(private http : HttpClient) { }
+
+
 }
