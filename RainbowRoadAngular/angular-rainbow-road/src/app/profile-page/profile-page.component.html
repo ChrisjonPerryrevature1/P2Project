@@ -4,6 +4,12 @@
     Hello! Welcome to your profile page !
 </p>
 
+<button (click)="displayUser()">Display Profile</button>
+
+<h3 *ngIf = "userProfile != null">
+{{userProfile}}
+</h3>
+
 <button type ="button"[routerLink]="'/'" style = "padding: 10px;">
     Back to List
   </button>

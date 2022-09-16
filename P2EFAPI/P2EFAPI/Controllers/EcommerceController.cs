@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -24,25 +25,28 @@ namespace P2EFAPI.Controllers
             return Ok(await _context.Users.ToListAsync()); 
         }
 
-        [HttpGet("GetUserAsync/{id}")]
-        public async Task<ActionResult<User>> GetUserByIdAsync(int id)
+        [HttpGet("GetUserLoggedInAsync")]
+        public async Task<ActionResult<List<User>>> GetUserLoggedInAsync()
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-                return BadRequest("User not found.");
-            return Ok(user);
+            var user = await _context.Users.ToListAsync();
+            var loggedInUser = user.Where(u => u.LoggedIn == true).ToList();
+            if (loggedInUser == null)
+            {
+                return BadRequest("User not logged in");
+            }
+      
+            return Ok(loggedInUser);
         }
 
-        [HttpPost ("LoginAsync")]
-        public async Task<ActionResult<User>> LoginAsync(string userEmail, string userPassword)
-        {
-            //make sure the logic is working
-            var user = await _context.Users.FindAsync(userEmail, userPassword);
-            if (user == null)
-                return BadRequest("User not found.");
-            if (user.Email != userEmail || user.Password != userPassword)
-                return BadRequest("Incorrect email or password.");
 
+        [HttpPost("LoginAsync")]
+        public async Task<ActionResult<User>> LoginAsync(User userLogin)
+        {
+            var user = await _context.Users.FindAsync(userLogin.UserId);
+                if (user == null)
+                return BadRequest("User not found.");
+            if (user.Email != userLogin.Email || user.Password != userLogin.Password)
+                return BadRequest("Incorrect email or password.");
             user.LoggedIn = true;
             await _context.SaveChangesAsync();
             return Ok(user);
