@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../Models/User';
+import { User } from '../Models/user';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -15,6 +15,7 @@ export class ProfilePageService {
   public getProfile (): Observable<User>
   {
     return this.http.get<User>(this.ApiUrl + "/api/Ecommerce/GetUserLoggedInAsync")
+
   }
 
 }
