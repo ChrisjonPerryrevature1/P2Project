@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using P2EFAPI.Models;
+//using System.Data.Entity;
 //using Microsoft.EntityFrameworkCore
 
 namespace P2EFAPI.Controllers
@@ -40,12 +41,12 @@ namespace P2EFAPI.Controllers
 
 
         [HttpPost("LoginAsync")]
-        public async Task<ActionResult<User>> LoginAsync(User userLogin)
+        public async Task<ActionResult<User>> LoginAsync(int userLoginId, string userLoginPassword)
         {
-            var user = await _context.Users.FindAsync(userLogin.UserId);
-                if (user == null)
+            var user = await _context.Users.FindAsync(userLoginId);
+            if (user == null)
                 return BadRequest("User not found.");
-            if (user.Email != userLogin.Email || user.Password != userLogin.Password)
+            if ( user.Password != userLoginPassword)
                 return BadRequest("Incorrect email or password.");
             user.LoggedIn = true;
             await _context.SaveChangesAsync();
