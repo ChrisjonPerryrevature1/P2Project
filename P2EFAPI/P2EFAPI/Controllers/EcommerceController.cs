@@ -122,12 +122,14 @@ namespace P2EFAPI.Controllers
             return Ok(newOrder);
         }
 
-        [HttpGet("GetUsersOrderContentsHistoryUser")]
-        public async Task<ActionResult<List<Order>>> GetUsersOrderContentsHistoryAsync(int UserId)
+        [HttpPost("GetUsersOrderContentsHistoryUser")]
+        public async Task<ActionResult<List<Order>>> GetUsersOrderContentsHistoryAsync(HistoryDto UserId)
         {
-            var user = await _context.Users.FindAsync(UserId);
+            var user = await _context.Users.FindAsync(UserId.UserId);
             if (user == null)
                 return BadRequest("User not found.");
+            if (user.LoggedIn != true)
+                return BadRequest("User not logged in");
 
             var orderhistory = await _context.Orders.FindAsync(user.UserId);
             if (orderhistory == null)
