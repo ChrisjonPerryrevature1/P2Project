@@ -1,23 +1,41 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
-    <h3>Register</h3>
-    <div>
-      <label for="email">
-        Email: 
-      </label>
-      <input id="email" type="text" formControlName="email">
+<h1>Register</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <form #postForm="ngForm" (ngSubmit)="Register(postForm.value)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            required
+            ngModel
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="password"
+            required
+            ngModel
+            name="password"
+          ></textarea>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!postForm.valid"
+        >
+          Register
+        </button>
+      </form>
     </div>
-  
-    <div>
-      <label for="password">
-        Password:
-      </label>
-      <input id="password" type="text" formControlName="password">
-    </div>
-  
-    <button class="button" style = "padding: 10px;" type="submit">Register</button>
-    
-</form>
+  </div>
+  <hr />
 <button routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" style ="padding: 10px;"> 
 Already Registered? Login Here </button>
 <button type ="button"[routerLink]="'/'" style = "padding: 10px;">

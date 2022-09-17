@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { RegisterService } from '../Services/register.service';
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private http: HttpClient) { }
 
     registerForm = this.formBuilder.group({
       UserId: 0,
@@ -30,4 +32,15 @@ export class RegisterComponent implements OnInit {
   {
   }
 
+  Register(postData: {email: string, password: string}) {
+    console.log(postData)
+    this.http.post
+    (
+      'https://localhost:7131/api/Ecommerce/RegisterUserAsync/',
+       postData
+    ).subscribe((responseData: any) => {
+      console.log(responseData);
+  });
+
+}
 }
