@@ -41,12 +41,12 @@ namespace P2EFAPI.Controllers
 
 
         [HttpPost("LoginAsync")]
-        public async Task<ActionResult<User>> LoginAsync(int userLoginId, string userLoginPassword)
+        public async Task<ActionResult<User>> LoginAsync(LoginDto login)
         {
-            var user = await _context.Users.FindAsync(userLoginId);
+            var user = await _context.Users.FindAsync(login.userLoginId);
             if (user == null)
                 return BadRequest("User not found.");
-            if ( user.Password != userLoginPassword)
+            if ( user.Password != login.userLoginPassword)
                 return BadRequest("Incorrect email or password.");
             user.LoggedIn = true;
             await _context.SaveChangesAsync();
