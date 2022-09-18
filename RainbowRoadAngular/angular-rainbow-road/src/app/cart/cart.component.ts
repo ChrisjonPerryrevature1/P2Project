@@ -27,7 +27,10 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  onClearCart()
+  {
+    this.items = this.cartService.clearCart();
+  }  
 
   onSubmit(postData : {UserId: number, OrderId: number, order: Order}) {
     postData.OrderId = 0;
@@ -62,6 +65,7 @@ export class CartComponent implements OnInit {
         //console.log(this.items[i])
         this.http.post
         ('https://localhost:7131/api/Ecommerce/CreateOrderAsync/',(postData.order)).subscribe((responseData: any) => {console.log(responseData);});
+
     }
    
     this.items = this.cartService.clearCart();

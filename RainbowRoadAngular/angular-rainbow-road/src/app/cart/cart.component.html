@@ -10,7 +10,7 @@
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm.value)">
         <div class="form-group">
-          <label for="UserId">UserId</label>
+          <label for="UserId">To confirm your purchase, please enter your UserId Number</label>
           <input
             type="number"
             class="form-control"
@@ -32,7 +32,7 @@
     </div>
   </div>
   <hr />
-
-  <button type ="button"[routerLink]="'/'">
-    Back to List
+  <button (click)="onClearCart()" > Remove Items From Cart</button>
+  <button type ="button"[routerLink]="'/productlist'">
+    Continue Shopping
   </button>

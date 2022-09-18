@@ -38,6 +38,11 @@ namespace P2EFAPI.Models
         public string userLoginPassword { get; set; }
     }
 
+    public class LogOutDto
+    {
+        public int UserId { get; set; }
+    }
+
     public class HistoryDto
     {
         public int UserId { get; set; }

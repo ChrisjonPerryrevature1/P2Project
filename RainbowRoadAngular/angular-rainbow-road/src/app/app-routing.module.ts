@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {path:'', component:ProductListComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfilePageComponent},
-  {path: 'orderhistory', component: OrderHistoryComponent}
+  {path: 'orderhistory', component: OrderHistoryComponent},
+  {path: 'logout', component: LogoutComponent}
 
 ];
 

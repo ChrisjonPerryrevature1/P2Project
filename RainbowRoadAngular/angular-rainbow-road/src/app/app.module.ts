@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent},
       { path: 'profile', component: ProfilePageComponent },
-      { path: 'orderhistory', component: OrderHistoryComponent }
+      { path: 'orderhistory', component: OrderHistoryComponent },
+      { path: 'logout', component: LogoutComponent}
 
 
     ]),
@@ -43,7 +45,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     LoginComponent,
     RegisterComponent,
     ProfilePageComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    LogoutComponent
 
   ],
   bootstrap: [

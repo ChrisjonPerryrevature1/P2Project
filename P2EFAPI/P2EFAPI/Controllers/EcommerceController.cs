@@ -54,10 +54,10 @@ namespace P2EFAPI.Controllers
         }
 
         [HttpPost("Logout")]
-        public async Task<ActionResult<User>> LogoutAsync(int userId)
+        public async Task<ActionResult<User>> LogoutAsync(LogOutDto userId)
         {
-            var user = await _context.Users.FindAsync(userId);
-            if (user.LoggedIn == true)
+            var user = await _context.Users.FindAsync(userId.UserId);
+            if (user?.LoggedIn == true)
             {
                 user.LoggedIn = false;
                 await _context.SaveChangesAsync();
