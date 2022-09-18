@@ -117,6 +117,7 @@ namespace P2EFAPI.Controllers
         [HttpPost("CreateOrderAsync")]
         public async Task<ActionResult<Order>> CreateOrderAsync(Order newOrder)
         {
+            newOrder.Price = newOrder.Quantity;
             _context.Orders.Add(newOrder);
             await _context.SaveChangesAsync();
             return Ok(newOrder);

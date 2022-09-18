@@ -32,6 +32,9 @@ export class CartService {
   {
     return this.items
   }
+  // updateInventory(ItemId: number, Quantity: number){
+  //   return this.http.put("https://localhost:7131/api/Ecommerce/UpdateInventoryAsync/", null);
+  // }
 
   // createOrder(order: any) : Observable<any>
   // {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../Services/cart.service';
 import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -17,6 +18,7 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
+    private http: HttpClient
     ) { }
     
     checkoutForm = this.formBuilder.group({
@@ -29,9 +31,14 @@ export class CartComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Process checkout data here
-    //http post create new order
-    //http put update inventory by subtracting cart quanitites
+    console.log(this.items)
+    for(let i=0; i<this.items.length; i++)
+    {
+        console.log(this.items[i])
+        this.http.put
+        ('https://localhost:7131/api/Ecommerce/UpdateInventoryAsync/',this.items[i]).subscribe((responseData: any) => {console.log(responseData);});
+    }
+   
     this.items = this.cartService.clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
