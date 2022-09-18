@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../Services/cart.service';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Order } from '../Models/order';
+import { OrderHistoryComponent } from '../order-history/order-history.component';
 
 @Component({
   selector: 'app-cart',
@@ -18,30 +20,53 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
     ) { }
-    
-    checkoutForm = this.formBuilder.group({
-      name: '',
-      address: ''
-    });
     
 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
-    console.log(this.items)
+  
+
+  onSubmit(postData : {UserId: number, OrderId: number, order: Order}) {
+    postData.OrderId = 0;
+    //console.log(this.items)
+    //console.log(postData.UserId)
+    postData.order = {
+    OrderId : 0,
+    ItemName : "Red Brick",
+    Quantiy: 1,
+    Price: 1,
+    UserId: 1
+    }
+
     for(let i=0; i<this.items.length; i++)
     {
-        console.log(this.items[i])
+        //console.log(this.items[i])
         this.http.put
         ('https://localhost:7131/api/Ecommerce/UpdateInventoryAsync/',this.items[i]).subscribe((responseData: any) => {console.log(responseData);});
     }
+
+    console.log(this.items)
+
+    for(let i=0; i<this.items.length; i++)
+    {   
+        postData.order.OrderId = postData.OrderId;
+        postData.order.ItemName = this.items[i].ItemName;
+        postData.order.Quantiy = this.items[i].Quantity;
+        postData.order.Price = this.items[i].Price;
+        postData.order.UserId = postData.UserId;
+
+        console.log(postData.order)
+        //console.log(this.items[i])
+        this.http.post
+        ('https://localhost:7131/api/Ecommerce/CreateOrderAsync/',(postData.order)).subscribe((responseData: any) => {console.log(responseData);});
+    }
    
     this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted', this.checkoutForm.value);
-    this.checkoutForm.reset();
+    console.warn('Your order has been submitted');
+    //this.postForm.reset();
   }
 
 }
