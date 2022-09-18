@@ -1,28 +1,28 @@
 export interface Product {
-    id: number;
-    name: string;
-    quantity: number;
-    price: number;
+    ItemId: number;
+    ItemName: string;
+    Quantity: number;
+    Price: number;
   }
   
   export const products = [
     {
-      id: 1,
-      name: 'Red Brick',
-      quantity: 1,
-      price: 1,
+      ItemId: 1,
+      ItemName: 'Red Brick',
+      Quantity: 1,
+      Price: 1,
     },
     {
-      id: 2,
-      name: 'Blue Brick',
-      quantity: 1,
-      price: 1,
+      ItemId: 2,
+      ItemName: 'Blue Brick',
+      Quantity: 1,
+      Price: 1,
     },
     {
-      id: 3,
-      name: 'Yellow Brick',
-      quantity: 1,
-      price: 1,
+      ItemId: 3,
+      ItemName: 'Yellow Brick',
+      Quantity: 1,
+      Price: 1,
     }
   ];
   

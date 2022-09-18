@@ -15,7 +15,7 @@ namespace P2EFAPI.Models
     public class Order
     {
         [Key]
-        public int OrderId { get; set; }
+        public int OrderId { get; set; } = 0;
         public string ItemName { get; set; }
         public int Quantity { get; set; }
         public int Price { get; set; }
@@ -28,19 +28,27 @@ namespace P2EFAPI.Models
         public int ItemId { get; set; }
         public string ItemName { get; set; }
         public int Quantity { get; set; }
-        public int Price { get; set; } 
+        public int Price { get; set; }
 
     }
 
     public class LoginDto
     {
-        public int userLoginId { get; set; }    
+        public int userLoginId { get; set; }
         public string userLoginPassword { get; set; }
     }
 
     public class HistoryDto
     {
-        public int UserId {get; set; }
+        public int UserId { get; set; }
     }
 
+    public class OrderDto
+    {
+        public string ItemName { get; set; }
+        public int Quantity { get; set; }
+        public int Price { get; set; }
+        public int UserId { get; set; }
+
+    }
 }
