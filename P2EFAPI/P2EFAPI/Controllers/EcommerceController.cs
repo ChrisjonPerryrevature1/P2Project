@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using P2EFAPI.Models;
+using System.CodeDom;
 //using System.Data.Entity;
 //using Microsoft.EntityFrameworkCore
 
@@ -126,16 +127,33 @@ namespace P2EFAPI.Controllers
         [HttpPost("GetUsersOrderContentsHistoryUser")]
         public async Task<ActionResult<List<Order>>> GetUsersOrderContentsHistoryAsync(HistoryDto UserId)
         {
-            var user = await _context.Users.FindAsync(UserId.UserId);
-            if (user == null)
-                return BadRequest("User not found.");
-            if (user.LoggedIn != true)
-                return BadRequest("User not logged in");
+            //var user = await _context.Users.FindAsync(UserId.UserId);
+            //if (user == null)
+            //    return BadRequest("User not found.");
+            //if (user.LoggedIn != true)
+            //    return BadRequest("User not logged in");
 
-            var orderhistory = await _context.Orders.FindAsync(user.UserId);
-            if (orderhistory == null)
-                return BadRequest("No order history found.");
-            return Ok(orderhistory);
+            //var orderhistory = await _context.Orders.Where(u => u.UserId == UserId.UserId).ToList();
+            //if (orderhistory == null)
+            //    return BadRequest("No order history found.");
+            //return Ok(orderhistory);
+
+
+            //var user = await _context.Users.ToListAsync();
+            //for(int i =0; i <user.Count; i++)
+            //{
+            //    if(user[i].LoggedIn == false)
+            //    {
+            //        user.Remove(user[i]);
+            //    }
+            //}
+            var HistoryByUser = _context.Orders.Where(u => u.UserId == UserId.UserId).ToList();
+            if (HistoryByUser == null)
+            {
+                return BadRequest("User history not found");
+            }
+
+            return Ok(HistoryByUser);
         }
 
 
