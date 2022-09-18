@@ -1,4 +1,4 @@
-<div style="background-color: rgb(37,110,247);">
+<div class = "wrapper" >
   <div class = "row">
       <div class = "col-md-6 justify-content-start">
         
@@ -12,6 +12,14 @@
         <i class="fas fa-angle-double-right"></i>
         Login
        </a>
+      </div>
+      <div class ="col-md-6 d-flex justify-content-end">
+        <a routerLink="/logout" routerLinkActive="active" ariaCurrentWhenActive="page" style ="padding: 10px;"
+        class="button fancy-button">
+        <i class="fas fa-angle-double-left"></i>
+        Logout
+       </a>
+      </div>
        <div class ="col-md-6 d-flex justify-content-end">
          <a routerLink="/productlist" routerLinkActive="active" ariaCurrentWhenActive="page" style ="padding: 10px;"
          class="button fancy-button">
@@ -19,7 +27,6 @@
          Shop Inventory
         </a>
        </div>
-      </div>
       <div class ="col-md-6 d-flex justify-content-end">
         <a routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page"  style ="padding: 10px;"
         class="button fancy-button">
@@ -48,5 +55,5 @@
         Order History
        </a>
       </div>
-  </div>
+</div>
 </div>

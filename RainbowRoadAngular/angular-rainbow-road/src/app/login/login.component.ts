@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   {
   }
 
+ 
+
   // onSubmit(): void {
   //   // Process checkout data here
     
@@ -30,8 +32,7 @@ export class LoginComponent implements OnInit {
   //   console.warn('Your login has been successful', this.login.value);
   //   this.login.reset();
   // }
-
-  onSuccessfullLogin(postData: {userLoginId: number, Password: string}) {
+  onSuccessfullLogin(postData: {userLoginId: number, Password: string, responseData:User}) {
     console.log(postData)
     this.http.post
     (
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
        postData
     ).subscribe((responseData: any) => {
       console.log(responseData);
-  });
+  }); 
+  }
 
-
-  }}
+}
