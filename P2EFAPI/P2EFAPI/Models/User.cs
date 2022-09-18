@@ -17,7 +17,7 @@ namespace P2EFAPI.Models
         [Key]
         public int OrderId { get; set; } = 0;
         public string ItemName { get; set; }
-        public int Quantity { get; set; }
+        public int Quantity { get; set; } 
         public int Price { get; set; }
         public int UserId { get; set; }
     }

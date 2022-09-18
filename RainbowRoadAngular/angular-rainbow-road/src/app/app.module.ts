@@ -15,7 +15,6 @@ import { RegisterComponent } from './register/register.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 
-
 @NgModule({
   imports: [
     BrowserModule,

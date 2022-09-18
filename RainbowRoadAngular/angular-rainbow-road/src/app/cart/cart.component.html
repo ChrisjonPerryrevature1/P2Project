@@ -5,24 +5,34 @@
   <span>{{ item.Price | currency }}</span>
 </div>
 
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm.value)">
+        <div class="form-group">
+          <label for="UserId">UserId</label>
+          <input
+            type="number"
+            class="form-control"
+            id="UserId"
+            required
+            ngModel
+            name="UserId"
+          />
+        </div>
+       
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!postForm.valid"
+        >
+          Purchase
+        </button>
+      </form>
+    </div>
   </div>
+  <hr />
 
-  <div>
-    <label for="address">
-      Address
-    </label>
-    <input id="address" type="text" formControlName="address">
-  </div>
-
-  <button class="button" type="submit">Purchase</button>
   <button type ="button"[routerLink]="'/'">
     Back to List
   </button>
-</form>
