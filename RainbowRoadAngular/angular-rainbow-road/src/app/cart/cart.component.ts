@@ -70,7 +70,9 @@ export class CartComponent implements OnInit {
    
     this.items = this.cartService.clearCart();
     console.warn('Your order has been submitted');
-    //this.postForm.reset();
+    window.alert("Your order has been submitted, thank you for your purchase!" );
+
+    //this.postForm.clear();
   }
 
 }

@@ -27,6 +27,8 @@ export class LogoutComponent implements OnInit {
        postData
     ).subscribe((responseData: any) => {
       console.log(responseData);
+      window.alert("You are logged out, come back soon! " + responseData.email);
+
   }); 
   }
 
