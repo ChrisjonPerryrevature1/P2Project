@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
        postData
     ).subscribe((responseData: any) => {
       console.log(responseData);
+      window.alert("You are logged in! Welcome, " + responseData.email);
+
   }); 
   }
 

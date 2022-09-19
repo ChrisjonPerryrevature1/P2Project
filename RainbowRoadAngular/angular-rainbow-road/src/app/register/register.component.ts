@@ -40,6 +40,7 @@ export class RegisterComponent implements OnInit {
        postData
     ).subscribe((responseData: any) => {
       console.log(responseData);
+      window.alert("Thank you for registering! Your UserId is: "+ responseData.userId + ".\nThis will be needed for login and checkout.");
   });
 
 }
